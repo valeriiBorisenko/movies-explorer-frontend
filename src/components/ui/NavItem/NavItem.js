@@ -4,8 +4,8 @@ function NavItem({ href, linkText }) {
   return(
     <li>
       <NavLink
-        className="header__link"
-        activeClass="header__link_active"
+        className="navigation__link"
+        activeClass="navigation__link_active"
         to={href}
       >
         {linkText}
