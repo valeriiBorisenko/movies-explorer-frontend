@@ -7,16 +7,18 @@ function Header({ browserLocation }) {
   const location = browserLocation
 
   const mainLocation = location !== mainPageUrl ? "" : "header_type_main";
-  const changeLocation = 
-  (location === mainPageUrl ?
-    <MainHeader /> : '') ||
-  (location === moviesUrl || location === savedMoviesUrl || location === profileUrl ?
-    <Navigation /> : '');
+  const changeLocation =
+    (location === mainPageUrl ?
+      <MainHeader /> : '') ||
+    (location === moviesUrl || location === savedMoviesUrl || location === profileUrl ?
+      <>
+        <Navigation />
+      </> : '');
 
   return (
     <header className={`header ${mainLocation}`}>
       <div className="header__logo" />
-        {changeLocation}
+      {changeLocation}
     </header>
   )
 }

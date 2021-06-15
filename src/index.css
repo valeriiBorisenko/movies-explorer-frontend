@@ -3,9 +3,13 @@
 
 @import url(./styles/page.css);
 @import url(./styles/link-opacity.css);
-@import url(./components/ui/Button/Button.css);
-@import url(./components/ui/MainHeader/MainHeader.css);
-@import url(./components/ui/Navigation/Navigation.css);
 
 @import url(./components/App/App.css);
 @import url(./components/Header/Header.css);
+
+
+@import url(./components/ui/Button/Button.css);
+@import url(./components/ui/MainHeader/MainHeader.css);
+@import url(./components/ui/Navigation/Navigation.css);
+@import url(./components/ui/NavItem/NavItem.css);
+@import url(./components/ui/ButtonAccount/ButtonAccount.css);

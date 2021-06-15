@@ -10,6 +10,9 @@
 
 .header__logo {
   background-image: url(../../images/logo/logo.svg);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
   width: 38px;
   height: 38px;
 }
@@ -25,7 +28,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .header { 
     padding: 0 70px;
   }

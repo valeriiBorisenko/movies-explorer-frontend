@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom';
 
-function NavItem({ href, linkText }) {
-  return(
-    <li>
+function NavItem({ href, linkText, onClick }) {
+  return (
+    <li className="navigation__link-container link-opacity">
       <NavLink
         className="navigation__link"
-        activeClass="navigation__link_active"
+        activeClassName="navigation__link_active"
         to={href}
+        onClick={onClick}
       >
         {linkText}
       </NavLink>

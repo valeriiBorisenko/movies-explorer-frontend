@@ -1,7 +1,16 @@
 .navigation {
+  position: absolute;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: rgb(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+}
+
+.navigation_disactive {
+  display: none;
 }
 
 .navigation__button-burger {
@@ -12,25 +21,19 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .navigation__container {
-  display: none;
-}
-
-.navigation__container_active {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  position: absolute;
+  position: relative;
   padding: 0;
-  margin: auto;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  right: 0;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
+  transition: 0.3s linear
 }
 
 .navigation__title {
@@ -49,20 +52,64 @@
   border: none;
   padding: 0;
   transform: rotate(45deg);
-  background-color: #ffffff;
+  background-color: transparent;
   cursor: pointer;
-  align-self: flex-end;
-  margin-right: 18px;
-  margin-top: 18px;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+.navigation__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__button-account {
+  position: absolute;
+  bottom: 46px;
+
 }
 
 @media screen and (min-width: 520px) {
-  .navigation__container_active {
+  .navigation__container {
     width: 520px;
   }
 }
 
 @media screen and (min-width: 1024px) {
+
+  .navigation {
+    background-color: unset;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-left: 44px;
+  }
+
+  .navigation__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+
+  .navigation__list {
+    flex-direction: row;
+  }
+
+  .navigation__button-close {
+    display: none;
+  }
+
+  .navigation__title {
+    display: none;
+  }
+
   .navigation__button-burger {
     display: none;
   }
