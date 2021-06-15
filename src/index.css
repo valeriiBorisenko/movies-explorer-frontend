@@ -1,2 +1,10 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
+
+@import url(./styles/page.css);
+@import url(./styles/link-opacity.css);
+@import url(./components/ui/Button/Button.css);
+@import url(./components/ui/MainHeader/MainHeader.css);
+
+@import url(./components/App/App.css);
+@import url(./components/Header/Header.css);
