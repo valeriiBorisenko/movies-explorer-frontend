@@ -1,6 +1,7 @@
 import Header from '../../Header/Header';
 import MainHeader from '../../ui/MainHeader/MainHeader';
 import Promo from './Promo/Promo';
+import AboutProject from './AboutProject/AboutProject';
 
 function MainPage() {
   return (
@@ -11,6 +12,7 @@ function MainPage() {
       </Header>
       <main className="main">
         <Promo />
+        <AboutProject />
       </main>
 
     </section>

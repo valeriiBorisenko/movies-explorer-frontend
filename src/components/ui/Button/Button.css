@@ -11,19 +11,8 @@
   cursor: pointer;
 }
 
-.button_type_main-header {
-  width: 54px;
-  height: 26px;
-  font-size: 10px;
-  line-height: 16px;
-}
-
 @media screen and (min-width: 768px) {
-  .button_type_main-header {
-    width: 76px;
-    height: 32px;
-    font-size: 12px;
-  }
+
 }
 
 @media screen and (min-width: 1280px) {
