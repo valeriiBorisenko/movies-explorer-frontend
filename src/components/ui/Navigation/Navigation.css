@@ -9,7 +9,7 @@
   right: 0;
 }
 
-.navigation_disactive {
+.navigation_mobile {
   display: none;
 }
 
@@ -112,5 +112,9 @@
 
   .navigation__button-burger {
     display: none;
+  }
+
+  .navigation_mobile {
+    display: flex;
   }
 }

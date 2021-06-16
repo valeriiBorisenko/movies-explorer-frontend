@@ -6,25 +6,25 @@ import ButtonAccount from '../ButtonAccount/ButtonAccount'
 
 function Navigation() {
 
-  const [isMobileMenu, setIsMobileMenu] = useState(true);
+  const [isMobileMenu, setIsMobileMenu] = useState(false);
 
   function clickOpenMobileMenu() {
-    setIsMobileMenu(false);
-  }
-
-  function closeMobileMenu() {
     setIsMobileMenu(true);
   }
 
+  function closeMobileMenu() {
+    setIsMobileMenu(false);
+  }
+
   function handleCloseMobileMenu() {
-    if (!isMobileMenu) {
-      setIsMobileMenu(true)
+    if (isMobileMenu) {
+      setIsMobileMenu(false)
     }
   };
 
   const classNamesNavigation = [
     'navigation',
-    (isMobileMenu ? "navigation_disactive" : "")
+    (isMobileMenu ? "" : "navigation_mobile")
   ].join(' ').trim();
 
   return (
