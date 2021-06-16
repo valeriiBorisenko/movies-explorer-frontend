@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Main from '../Pages/Main/Main';
+import MainPage from '../Pages/MainPage/MainPage';
 import Movies from '../Pages/Movies/Movies';
 import SavedMovies from '../Pages/SavedMovies/SavedMovies';
 import Register from '../Pages/Register/Register';
@@ -16,7 +16,7 @@ function App() {
     <div className="app">
         <Switch>
           <Route exact path={`${mainPageUrl}`}>
-            <Main />
+            <MainPage />
           </Route>
           <Route path={`${moviesUrl}`}>
             <Movies />

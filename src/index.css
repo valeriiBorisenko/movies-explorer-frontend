@@ -3,16 +3,20 @@
 
 @import url(./styles/page.css);
 @import url(./styles/link-opacity.css);
+@import url(./styles/main.css);
 
 @import url(./components/App/App.css);
-@import url(./components/Pages/Main/Main.css);
+@import url(./components/Header/Header.css);
+@import url(./components/Pages/MainPage/MainPage.css);
 @import url(./components/Pages/Movies/Movies.css);
 @import url(./components/Pages/Profile/Profile.css);
 @import url(./components/Pages/Register/Register.css);
 @import url(./components/Pages/Login/Login.css);
 @import url(./components/Pages/PageNotFound/PageNotFound.css);
+@import url(./components/Footer/Footer.css);
 
-@import url(./components/Header/Header.css);
+@import url(./components/Pages/MainPage/Promo/Promo.css);
+
 @import url(./components/ui/Button/Button.css);
 @import url(./components/ui/MainHeader/MainHeader.css);
 @import url(./components/ui/Navigation/Navigation.css);

@@ -9,6 +9,7 @@ function MainHeader() {
       <Button 
         sectionClass="main-header"
         title='Войти'
+        type="button"
       />
     </div>
   )
