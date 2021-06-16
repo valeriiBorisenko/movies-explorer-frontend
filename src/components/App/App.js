@@ -9,7 +9,7 @@ import Login from '../Pages/Login/Login';
 import Profile from '../Pages/Profile/Profile';
 import PageNotFound from '../Pages/PageNotFound/PageNotFound';
 
-import { errorUrl, loginUrl, mainPageUrl, moviesUrl, profileUrl, registrationUrl, savedMoviesUrl } from '../../utils/routes';
+import { pageNotFoundUrl, loginUrl, mainPageUrl, moviesUrl, profileUrl, registerUrl, savedMoviesUrl } from '../../utils/routes';
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
         <Route path={`${savedMoviesUrl}`}>
           <SavedMovies />
         </Route>
-        <Route path={`${registrationUrl}`}>
+        <Route path={`${registerUrl}`}>
           <Register />
         </Route>
         <Route path={`${loginUrl}`}>
@@ -39,7 +39,7 @@ function App() {
         <Route path={`${profileUrl}`}>
           <Profile />
         </Route>
-        <Route path={`${errorUrl}`}>
+        <Route path={`${pageNotFoundUrl}`}>
           <PageNotFound />
         </Route>
       </main>
