@@ -1,0 +1,39 @@
+.button-account {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+  width: 100px;
+  height: 32px;
+  border: 2px solid #AAAAAA;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  
+  position: absolute;
+  bottom: 46px;
+}
+
+.button-account__icon {
+  background-image: url(../../../images/icon/icon_account.svg);
+  width: 12px;
+  height: 14px;
+  margin-right: 7px;
+}
+
+.button-account__icon_active {
+  background-color: #EE3465;
+}
+
+@media screen and (min-width: 1024px) {
+  .button-account {
+    position: unset;
+  }
+}
