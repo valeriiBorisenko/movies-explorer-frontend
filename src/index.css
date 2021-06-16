@@ -3,21 +3,28 @@
 
 @import url(./styles/link-opacity.css);
 @import url(./styles/main.css);
+@import url(./styles/text-skin.css);
 
 @import url(./components/App/App.css);
 @import url(./components/Header/Header.css);
+@import url(./components/Footer/Footer.css);
+
 @import url(./components/Pages/MainPage/MainPage.css);
 @import url(./components/Pages/Movies/Movies.css);
 @import url(./components/Pages/Profile/Profile.css);
 @import url(./components/Pages/Register/Register.css);
 @import url(./components/Pages/Login/Login.css);
 @import url(./components/Pages/PageNotFound/PageNotFound.css);
-@import url(./components/Footer/Footer.css);
 
 @import url(./components/Pages/MainPage/Promo/Promo.css);
+@import url(./components/Pages/MainPage/AboutProject/AboutProject.css);
 
 @import url(./components/ui/Button/Button.css);
 @import url(./components/ui/MainHeader/MainHeader.css);
 @import url(./components/ui/Navigation/Navigation.css);
 @import url(./components/ui/NavItem/NavItem.css);
 @import url(./components/ui/ButtonAccount/ButtonAccount.css);
+@import url(./components/ui/TitleH2/TitleH2.css);
+@import url(./components/ui/TitleH3/TitleH3.css);
+@import url(./components/ui/Paragraph/Paragraph.css);
+@import url(./components/ui/TimeLine/TimeLine.css);

@@ -1,0 +1,26 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline__box {
+  min-height: 18px;
+  width: 100%;
+  background-color: #3456F3;
+  text-align: center;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  padding: 9px;
+}
+
+.timeline__text {
+  font-size: 11px;
+  line-height: 13px;
+  color: #A0A0A0;
+  text-align: center;
+}

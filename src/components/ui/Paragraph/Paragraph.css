@@ -1,0 +1,20 @@
+.paragraph {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  .paragraph {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .paragraph {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
