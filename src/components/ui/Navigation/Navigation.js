@@ -24,7 +24,7 @@ function Navigation() {
 
   const classNamesNavigation = [
     'navigation',
-    (isMobileMenu ? "" : "navigation_mobile")
+    (isMobileMenu ? "navigation_mobile" : "")
   ].join(' ').trim();
 
   return (
