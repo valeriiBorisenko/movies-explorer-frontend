@@ -2,9 +2,10 @@ import TitleH3 from '../../../ui/TitleH3/TitleH3';
 import TitleH2 from '../../../ui/TitleH2/TitleH2';
 import ParagraphMainPage from '../../../ui/ParagraphMainPage/ParagraphMainPage'
 import TechItem from '../../../ui/TechItem/TechItem';
+import { techs } from '../../../../utils/constants';
 
 function Techs() {
-  return(
+  return (
     <section className="techs">
       <div className="main-page__container">
         <TitleH3
@@ -22,27 +23,11 @@ function Techs() {
             sectionClass="techs__text"
           />
           <div className="techs__items">
-            <TechItem
-              title="HTML"
-            />
-            <TechItem
-              title="CSS"
-            />
-            <TechItem
-              title="JS"
-            />
-            <TechItem
-              title="React"
-            />
-            <TechItem
-              title="Git"
-            />
-            <TechItem
-              title="Express.js"
-            />
-            <TechItem
-              title="Mongo."
-            />
+            {techs.map((item) =>
+              <TechItem
+                title={item}
+              />
+            )}
           </div>
         </div>
       </div>
