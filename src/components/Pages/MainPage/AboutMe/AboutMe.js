@@ -28,10 +28,10 @@ function AboutMe() {
           />
           <ul className="about-me__links">
             <li>
-              <a className="about-me__link opacity-link" href="https://career.habr.com/valeriiborisenko" target="blank">Хабр.Карьера</a>
+              <a className="about-me__link link-opacity" href="https://career.habr.com/valeriiborisenko" target="_blank" rel="noreferrer">Хабр.Карьера</a>
             </li>
             <li>
-              <a className="about-me__link opacity-link" href="https://github.com/valeriiBorisenko" target="blank">Github</a>
+              <a className="about-me__link link-opacity" href="https://github.com/valeriiBorisenko" target="_blank" rel="noreferrer">Github</a>
             </li>
           </ul>
         </div>

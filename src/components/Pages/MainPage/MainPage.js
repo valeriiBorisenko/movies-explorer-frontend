@@ -5,12 +5,13 @@ import NavTab from './NavTab/NavTab';
 import AboutProject from './AboutProject/AboutProject';
 import Techs from './Techs/Techs';
 import AboutMe from './AboutMe/AboutMe';
+import Portfolio from './Portfolio/Portfolio';
 
 function MainPage() {
   return (
     <section className="main-page">
       <Header sectionClass="header_type_main">
-        <div className="header__logo" />
+        <div className="header__logo" aria-label="логотип страницы" />
         <MainHeader />
       </Header>
       <main className="main">
@@ -19,6 +20,7 @@ function MainPage() {
         <AboutProject />
         <Techs />
         <AboutMe />
+        <Portfolio />
       </main>
 
     </section>
