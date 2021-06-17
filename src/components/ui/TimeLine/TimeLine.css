@@ -5,17 +5,15 @@
 }
 
 .timeline__box {
-  min-height: 18px;
-  width: 100%;
-  background-color: #3456F3;
+  min-height: 11px;
   text-align: center;
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
-  color: #ffffff;
   margin: 0;
   padding: 0;
-  padding: 9px;
+  padding: 11px;
+  width: auto;
 }
 
 .timeline__text {
@@ -23,4 +21,29 @@
   line-height: 13px;
   color: #A0A0A0;
   text-align: center;
+}
+
+
+.timeline_color_grey {
+  background-color: #F2F2F2;
+  color: #000000;
+}
+
+.timeline_color_blue {
+  background-color: #3456F3;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .timeline__box { 
+    font-size: 14px;
+    line-height: 17px;
+    padding: 9px;
+  }
+  .timeline__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}
+
 }

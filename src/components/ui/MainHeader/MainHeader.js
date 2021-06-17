@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { loginUrl, registerUrl } from "../../../utils/routes";
-import Button from "../Button/Button"
 
 function MainHeader() {
   return (

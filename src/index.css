@@ -26,5 +26,6 @@
 @import url(./components/ui/ButtonAccount/ButtonAccount.css);
 @import url(./components/ui/TitleH2/TitleH2.css);
 @import url(./components/ui/TitleH3/TitleH3.css);
-@import url(./components/ui/Paragraph/Paragraph.css);
+@import url(./components/ui/ParagraphMainPage/ParagraphMainPage.css);
 @import url(./components/ui/TimeLine/TimeLine.css);
+@import url(./components/ui/ProjectTasks/ProjectTasks.css);

@@ -2,3 +2,21 @@
   display: flex;
   flex-direction: column;
 }
+
+.main-page__container {
+  display: flex;
+  flex-direction: column;
+  padding: 70px 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .main-page__container { 
+    padding: 90px 50px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main-page__container {
+    padding: 110 70px;
+  }
+}

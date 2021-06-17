@@ -1,0 +1,17 @@
+.project-tasks {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .project-tasks {
+    grid-gap:22px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .project-tasks {
+    grid-gap:40px;
+  }
+}
