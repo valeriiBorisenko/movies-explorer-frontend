@@ -2,6 +2,7 @@ import Header from '../../Header/Header';
 import MainHeader from '../../ui/MainHeader/MainHeader';
 import Promo from './Promo/Promo';
 import AboutProject from './AboutProject/AboutProject';
+import Techs from './Techs/Techs';
 
 function MainPage() {
   return (
@@ -13,6 +14,7 @@ function MainPage() {
       <main className="main">
         <Promo />
         <AboutProject />
+        <Techs /> 
       </main>
 
     </section>

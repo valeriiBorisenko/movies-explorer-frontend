@@ -18,6 +18,7 @@
 
 @import url(./components/Pages/MainPage/Promo/Promo.css);
 @import url(./components/Pages/MainPage/AboutProject/AboutProject.css);
+@import url(./components/Pages/MainPage/Techs/Techs.css);
 
 @import url(./components/ui/Button/Button.css);
 @import url(./components/ui/MainHeader/MainHeader.css);
@@ -29,3 +30,4 @@
 @import url(./components/ui/ParagraphMainPage/ParagraphMainPage.css);
 @import url(./components/ui/TimeLine/TimeLine.css);
 @import url(./components/ui/ProjectTasks/ProjectTasks.css);
+@import url(./components/ui/TechItem/TechItem.css);
