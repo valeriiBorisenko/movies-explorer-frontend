@@ -11,7 +11,7 @@ function AboutProject() {
           sectionClass="text-skin"
         />
         <div className="border" />
-        <div className="about-project__conteiner">
+        <div className="about-project__container">
           <ProjectTasks
             title="Дипломный проект включал 5 этапов"
             text="Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки."

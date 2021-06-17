@@ -17,8 +17,10 @@
 @import url(./components/Pages/PageNotFound/PageNotFound.css);
 
 @import url(./components/Pages/MainPage/Promo/Promo.css);
+@import url(./components/Pages/MainPage/NavTab/NavTab.css);
 @import url(./components/Pages/MainPage/AboutProject/AboutProject.css);
 @import url(./components/Pages/MainPage/Techs/Techs.css);
+@import url(./components/Pages/MainPage/AboutMe/AboutMe.css);
 
 @import url(./components/ui/Button/Button.css);
 @import url(./components/ui/MainHeader/MainHeader.css);

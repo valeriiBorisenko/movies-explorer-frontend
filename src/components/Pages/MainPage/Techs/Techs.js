@@ -13,7 +13,7 @@ function Techs() {
           sectionClass="text-skin"
         />
         <div className="border" />
-        <div className="techs__conteiner">
+        <div className="techs__container">
           <TitleH2
             title="7 технологий"
             sectionClass="techs__title"
