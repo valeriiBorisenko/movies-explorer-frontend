@@ -1,6 +1,7 @@
 .app {
   font-family: "Inter", Arial, sans-serif;
   background-color: #FAFAFA;
+  min-height: 100vh;
   color: #000000;
 
   -webkit-font-smoothing: antialiased;
