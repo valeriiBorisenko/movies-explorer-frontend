@@ -1,5 +1,5 @@
-import TitleH3 from '../ui/TitleH3/TitleH3';
-import TitleH2 from '../ui/TitleH2/TitleH2';
+import TitleH3MainPage from '../ui/TitleH3MainPage/TitleH3MainPage';
+import TitleH2MainPage from '../ui/TitleH2MainPage/TitleH2MainPage';
 import ParagraphMainPage from '../ui/ParagraphMainPage/ParagraphMainPage'
 import { techs } from '../../../../utils/constants';
 
@@ -7,13 +7,13 @@ function Techs() {
   return (
     <section className="techs">
       <div className="main-page__container">
-        <TitleH3
+        <TitleH3MainPage
           title="Технологии"
           sectionClass="text-skin"
         />
         <div className="border" />
         <div className="techs__container">
-          <TitleH2
+          <TitleH2MainPage
             title="7 технологий"
             sectionClass="techs__title"
           />

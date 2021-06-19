@@ -21,8 +21,8 @@
 @import url(./components/Pages/MainPage/Portfolio/PotfolioLink/PortfolioLink.css);
 
 @import url(./components/Pages/MainPage/ui/MainHeader/MainHeader.css);
-@import url(./components/Pages/MainPage/ui/TitleH2/TitleH2.css);
-@import url(./components/Pages/MainPage/ui/TitleH3/TitleH3.css);
+@import url(./components/Pages/MainPage/ui/TitleH2MainPage/TitleH2MainPage.css);
+@import url(./components/Pages/MainPage/ui/TitleH3MainPage/TitleH3MainPage.css);
 @import url(./components/Pages/MainPage/ui/ParagraphMainPage/ParagraphMainPage.css);
 
 @import url(./components/Pages/Movies/Movies.css);

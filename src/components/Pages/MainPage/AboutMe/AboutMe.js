@@ -1,5 +1,5 @@
-import TitleH3 from "../ui/TitleH3/TitleH3"
-import TitleH2 from "../ui/TitleH2/TitleH2";
+import TitleH3MainPage from "../ui/TitleH3MainPage/TitleH3MainPage"
+import TitleH2MainPage from "../ui/TitleH2MainPage/TitleH2MainPage";
 import ParagraphMainPage from "../ui/ParagraphMainPage/ParagraphMainPage";
 import avatar from "../../../../images/ValeriiBorisenko.png"
 
@@ -7,14 +7,14 @@ function AboutMe() {
   return (
     <section className="about-me">
       <div className="main-page__container">
-        <TitleH3
+        <TitleH3MainPage
           title="Студент"
           sectionClass="text-skin"
         />
         <div className="border" />
         <div className="about-me__container">
           <img class="about-me__image" src={avatar} alt="фотография стундента" />
-          <TitleH2
+          <TitleH2MainPage
             title="Валерий"
             sectionClass="about-me__title"
           />

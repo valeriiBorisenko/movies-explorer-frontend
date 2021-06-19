@@ -1,4 +1,4 @@
-import TitleH3 from '../ui/TitleH3/TitleH3';
+import TitleH3MainPage from '../ui/TitleH3MainPage/TitleH3MainPage';
 import ProjectTasks from './ProjectTasks/ProjectTasks';
 import Timeline from './TimeLine/TimeLine'
 
@@ -6,7 +6,7 @@ function AboutProject() {
   return (
     <section className="about-project">
       <div className="main-page__container">
-        <TitleH3
+        <TitleH3MainPage
           title="О проекте"
           sectionClass="text-skin"
         />
