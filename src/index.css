@@ -11,7 +11,7 @@
 
 @import url(./components/Pages/MainPage/MainPage.css);
 @import url(./components/Pages/MainPage/Promo/Promo.css);
-@import url(./components/Pages/MainPage/NavTab/NavTab.css);
+@import url(./components/Pages/MainPage/Promo/NavTab/NavTab.css);
 @import url(./components/Pages/MainPage/AboutProject/AboutProject.css);
 @import url(./components/Pages/MainPage/AboutProject/ProjectTasks/ProjectTasks.css);
 @import url(./components/Pages/MainPage/AboutProject/TimeLine/TimeLine.css);

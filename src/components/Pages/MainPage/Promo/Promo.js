@@ -1,4 +1,6 @@
-function Promo() {
+import NavTab from './NavTab/NavTab';
+
+function Promo({ onClick }) {
   return (
     <section className="promo" >
       <div className="promo__container">
@@ -8,6 +10,9 @@ function Promo() {
         </div>
         <div className="promo__logo" aria-label="шар из надписей web" />
       </div>
+      <NavTab
+        onClick={onClick}
+      />
     </ section>
   )
 };
