@@ -1,6 +1,6 @@
-import TitleH3 from "../../../ui/TitleH3/TitleH3"
-import TitleH2 from "../../../ui/TitleH2/TitleH2";
-import ParagraphMainPage from "../../../ui/ParagraphMainPage/ParagraphMainPage";
+import TitleH3 from "../ui/TitleH3/TitleH3"
+import TitleH2 from "../ui/TitleH2/TitleH2";
+import ParagraphMainPage from "../ui/ParagraphMainPage/ParagraphMainPage";
 import avatar from "../../../../images/ValeriiBorisenko.png"
 
 function AboutMe() {

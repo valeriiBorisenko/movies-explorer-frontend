@@ -1,0 +1,30 @@
+.portfolio-link {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.portfolio-link:last-of-type {
+  padding-bottom:0;
+  border-bottom: none;
+}
+
+.portfolio-link__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+  margin: 0;
+  text-decoration: none;
+}
+
+.portfolio-link__image {
+  background-image: url(../../../../../images/icon/icon_arrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 28px;
+}

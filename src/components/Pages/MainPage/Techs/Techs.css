@@ -28,6 +28,18 @@
   gap: 10px;
 }
 
+.tech__item {
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 22px 0;
+  width: 84px;
+  background-color: #E8E8E8;
+  border-radius: 10px;
+  margin: 0;
+}
+
 @media screen and (min-width: 768px) {
   .techs {
     background-color: #F5F5F5;
@@ -38,5 +50,14 @@
   }
   .techs__items { 
     padding: 0;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  .tech__item { 
+    font-size: 14px;
+    line-height: 17px;
+    width: 90px;
   }
 }

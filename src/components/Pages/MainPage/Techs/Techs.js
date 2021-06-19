@@ -1,7 +1,6 @@
-import TitleH3 from '../../../ui/TitleH3/TitleH3';
-import TitleH2 from '../../../ui/TitleH2/TitleH2';
-import ParagraphMainPage from '../../../ui/ParagraphMainPage/ParagraphMainPage'
-import TechItem from '../../../ui/TechItem/TechItem';
+import TitleH3 from '../ui/TitleH3/TitleH3';
+import TitleH2 from '../ui/TitleH2/TitleH2';
+import ParagraphMainPage from '../ui/ParagraphMainPage/ParagraphMainPage'
 import { techs } from '../../../../utils/constants';
 
 function Techs() {
@@ -24,9 +23,7 @@ function Techs() {
           />
           <div className="techs__items">
             {techs.map((item) =>
-              <TechItem
-                title={item}
-              />
+              <div className="tech__item">{item}</div>
             )}
           </div>
         </div>

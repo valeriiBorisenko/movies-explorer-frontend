@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { loginUrl, registerUrl } from "../../../utils/routes";
+import { loginUrl, registerUrl } from "../../../../../utils/routes";
 
 function MainHeader() {
   return (

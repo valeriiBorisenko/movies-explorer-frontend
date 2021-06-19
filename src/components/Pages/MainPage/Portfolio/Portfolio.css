@@ -23,40 +23,9 @@
   list-style: none;
 }
 
-.portfolio__link-container {
-  padding-bottom: 18px;
-  border-bottom: 1px solid #E6E6E6;
-}
-
-.portfolio__link-container:last-of-type {
-  padding-bottom:0;
-  border-bottom: none;
-}
-
-.portfolio__link {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 28px;
-  color: #000000;
-  margin: 0;
-  text-decoration: none;
-}
-
-.portfolio__image {
-  background-image: url(../../../../images/icon/icon_arrow.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 18px;
-  height: 28px;
-}
-
 @media screen and (min-width: 768px) {
   .portfolio__container{
-    padding: 0px 50px 90px;
+
   }
   .portfolio__title {
     font-size: 18px;

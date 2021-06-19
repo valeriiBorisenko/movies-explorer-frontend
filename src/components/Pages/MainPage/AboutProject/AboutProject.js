@@ -1,6 +1,6 @@
-import TitleH3 from '../../../ui/TitleH3/TitleH3';
-import ProjectTasks from '../../../ui/ProjectTasks/ProjectTasks';
-import Timeline from '../../../ui/TimeLine/TimeLine'
+import TitleH3 from '../ui/TitleH3/TitleH3';
+import ProjectTasks from './ProjectTasks/ProjectTasks';
+import Timeline from './TimeLine/TimeLine'
 
 function AboutProject() {
   return (
