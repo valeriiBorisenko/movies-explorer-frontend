@@ -25,7 +25,7 @@ function AuthUsers({
         title={title}
         sectionClass="text-skin"
       />
-      <form className="auth__form" onSubmit={onSubmit} novalidate>
+      <form className="auth__form" onSubmit={onSubmit} noValidate>
         <fieldset className="auth__form-container">
           {children}
         </fieldset>

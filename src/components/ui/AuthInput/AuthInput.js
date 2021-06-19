@@ -6,7 +6,6 @@ function AuthInput({
   required,
   errorMessage,
   error,
-  rules
 }) {
   const message = error ? errorMessage : '';
 
@@ -19,7 +18,7 @@ function AuthInput({
         className={classNamesInput}
         type={type}
         name={name}
-        {...register(name, { required, rules })}
+        {...register(name, { required })}
       />
       <span className="auth-input__text auth-input_error">{message}</span>
     </div>
