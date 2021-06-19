@@ -1,11 +1,12 @@
 import TitleH3MainPage from "../ui/TitleH3MainPage/TitleH3MainPage"
 import TitleH2MainPage from "../ui/TitleH2MainPage/TitleH2MainPage";
 import ParagraphMainPage from "../ui/ParagraphMainPage/ParagraphMainPage";
+import SocialLink from "../../../ui/SocialLink/SocialLink";
 import avatar from "../../../../images/ValeriiBorisenko.png"
 
-function AboutMe() {
+function AboutMe({ isActive }) {
   return (
-    <section className="about-me">
+    <section className={`about-me ${isActive ? "about-me_hide" : ''}`}>
       <div className="main-page__container">
         <TitleH3MainPage
           title="Студент"
@@ -27,12 +28,16 @@ function AboutMe() {
             sectionClass="about-me__text"
           />
           <ul className="about-me__links">
-            <li>
-              <a className="about-me__link link-opacity" href="https://career.habr.com/valeriiborisenko" target="_blank" rel="noreferrer">Хабр.Карьера</a>
-            </li>
-            <li>
-              <a className="about-me__link link-opacity" href="https://github.com/valeriiBorisenko" target="_blank" rel="noreferrer">Github</a>
-            </li>
+            <SocialLink
+              href="https://career.habr.com/valeriiborisenko"
+              title="Хабр.Карьера"
+              sectionClass="about-me__link"
+            />
+            <SocialLink
+              href="https://github.com/valeriiBorisenko"
+              title="Github"
+              sectionClass="about-me__link"
+            />
           </ul>
         </div>
       </div>

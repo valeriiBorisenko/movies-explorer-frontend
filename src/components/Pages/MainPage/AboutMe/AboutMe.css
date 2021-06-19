@@ -1,5 +1,10 @@
 .about-me {
   width: 100%;
+  display: block;
+}
+
+.about-me_hide {
+  display: none;
 }
 
 .about-me__container {
@@ -48,8 +53,6 @@
 }
 
 .about-me__link {
-  text-decoration: none;
-  color: #000000;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;

@@ -1,8 +1,8 @@
 import PortfolioLink from "./PotfolioLink/PortfolioLink"
 
-function Portfolio() {
+function Portfolio({ isActive }) {
   return (
-    <section className="portfolio">
+    <section className={`portfolio ${isActive ? "portfolio_hide" : ''}`}>
       <div className="portfolio__container">
         <h3 className="portfolio__title">Портфолио</h3>
         <ul className="portfolio__links">

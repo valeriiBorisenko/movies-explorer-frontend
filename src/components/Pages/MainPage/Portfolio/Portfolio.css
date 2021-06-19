@@ -1,5 +1,10 @@
 .portfolio {
   width: 100%;
+  display: block;
+}
+
+.portfolio_hide {
+  display: none;
 }
 
 .portfolio__container{
@@ -25,7 +30,7 @@
 
 @media screen and (min-width: 768px) {
   .portfolio__container{
-
+    padding: 0px 50px 90px;
   }
   .portfolio__title {
     font-size: 18px;
@@ -41,6 +46,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .portfolio__container{
+    padding: 0px 70px 125px;
+  }
   .portfolio__link {
     font-size: 30px;
   }
