@@ -1,7 +1,7 @@
-function Button({ sectionClass, title }) {
+function Button({ sectionClass, title, type }) {
 
-  return(
-    <button className={`button button_type_${sectionClass}`} type="submit">{title}</button>
+  return (
+    <button className={`button button_type_${sectionClass} link-opacity`} type={type}>{title}</button>
   );
 }
 
