@@ -1,0 +1,28 @@
+.auth-input {
+  display: grid;
+  grid-gap: 10px;
+  width: 100%;
+}
+
+.auth-input__text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A0A0A0
+}
+
+.auth-input__input {
+  height: 16px;
+  background: #F4F4F4;
+  border: none;
+  border-radius: 8px; 
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 15px;
+}
+
+.auth-input_error {
+  color: #EE3465;
+}

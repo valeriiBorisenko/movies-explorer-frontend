@@ -14,7 +14,7 @@ function AboutMe({ isActive }) {
         />
         <div className="border" />
         <div className="about-me__container">
-          <img class="about-me__image" src={avatar} alt="фотография стундента" />
+          <img className="about-me__image" src={avatar} alt="фотография стундента" />
           <TitleH2MainPage
             title="Валерий"
             sectionClass="about-me__title"

@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import MainPage from '../Pages/MainPage/MainPage';
 import Movies from '../Pages/Movies/Movies';
 import SavedMovies from '../Pages/SavedMovies/SavedMovies';
@@ -12,31 +12,37 @@ import { pageNotFoundUrl, loginUrl, mainPageUrl, moviesUrl, profileUrl, register
 
 function App() {
 
+  const browserLocation = useLocation()
+
   return (
     <div className="app">
-        <Switch>
-          <Route exact path={`${mainPageUrl}`}>
-            <MainPage />
-          </Route>
-          <Route path={`${moviesUrl}`}>
-            <Movies />
-          </Route>
-          <Route path={`${savedMoviesUrl}`}>
-            <SavedMovies />
-          </Route>
-          <Route path={`${registerUrl}`}>
-            <Register />
-          </Route>
-          <Route path={`${loginUrl}`}>
-            <Login />
-          </Route>
-          <Route path={`${profileUrl}`}>
-            <Profile />
-          </Route>
-          <Route path={`${pageNotFoundUrl}`}>
-            <PageNotFound/>
-          </Route>
-        </Switch>
+      <Switch>
+        <Route exact path={`${mainPageUrl}`}>
+          <MainPage />
+        </Route>
+        <Route path={`${moviesUrl}`}>
+          <Movies />
+        </Route>
+        <Route path={`${savedMoviesUrl}`}>
+          <SavedMovies />
+        </Route>
+        <Route path={`${registerUrl}`}>
+          <Register
+            browserLocation={browserLocation.pathname}
+          />
+        </Route>
+        <Route path={`${loginUrl}`}>
+          <Login
+            browserLocation={browserLocation.pathname}
+          />
+        </Route>
+        <Route path={`${profileUrl}`}>
+          <Profile />
+        </Route>
+        <Route path={`${pageNotFoundUrl}`}>
+          <PageNotFound />
+        </Route>
+      </Switch>
     </div>
   );
 }
