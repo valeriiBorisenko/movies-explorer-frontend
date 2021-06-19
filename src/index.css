@@ -25,11 +25,12 @@
 @import url(./components/Pages/MainPage/ui/TitleH3MainPage/TitleH3MainPage.css);
 @import url(./components/Pages/MainPage/ui/ParagraphMainPage/ParagraphMainPage.css);
 
-@import url(./components/Pages/Movies/Movies.css);
-@import url(./components/Pages/Profile/Profile.css);
+@import url(./components/Pages/PageNotFound/PageNotFound.css);
 @import url(./components/Pages/Register/Register.css);
 @import url(./components/Pages/Login/Login.css);
-@import url(./components/Pages/PageNotFound/PageNotFound.css);
+
+@import url(./components/Pages/Movies/Movies.css);
+@import url(./components/Pages/Profile/Profile.css);
 
 @import url(./components/ui/Button/Button.css);
 @import url(./components/ui/Navigation/Navigation.css);
@@ -37,4 +38,6 @@
 @import url(./components/ui/ButtonAccount/ButtonAccount.css);
 @import url(./components/ui/SocialLink/SocialLink.css);
 @import url(./components/ui/PageLink/PageLink.css);
-
+@import url(./components/ui/TitleH2/TitleH2.css);
+@import url(./components/ui/AuthUsers/AuthUsers.css);
+@import url(./components/ui/AuthInput/AuthInput.css);
