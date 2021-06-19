@@ -1,0 +1,11 @@
+.page-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+  text-decoration: none;
+}
+
+.page-link__name {
+  color: #3456F3;
+}
