@@ -25,7 +25,7 @@
 .auth__form-container {
   border: none;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 10px;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -78,6 +78,7 @@
     margin-top: 40px;
     min-height: 413px; 
   }
+
 }
 
 @media screen and (min-width: 1280px) {

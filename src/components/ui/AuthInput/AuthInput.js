@@ -1,3 +1,5 @@
+import Input from "../Input/Input";
+
 function AuthInput({
   description,
   type,
@@ -13,12 +15,13 @@ function AuthInput({
 
   return (
     <div className="auth-input">
-      <p className="auth-input__text">{description}</p>
-      <input
-        className={classNamesInput}
+      <label className="auth-input__text">{description}</label>
+      <Input
+        classNamesInput={classNamesInput}
         type={type}
         name={name}
-        {...register(name, { required })}
+        register={register}
+        required={required}
       />
       <span className="auth-input__text auth-input_error">{message}</span>
     </div>

@@ -24,7 +24,6 @@
   height: 44px;
   border: none;
   padding: 0;
-  cursor: pointer;
   background-color: transparent;
 }
 
@@ -57,7 +56,6 @@
   padding: 0;
   transform: rotate(45deg);
   background-color: transparent;
-  cursor: pointer;
   position: absolute;
   top: 18px;
   right: 18px;
@@ -97,6 +95,7 @@
   }
 
   .navigation__container {
+    background-color: unset;
     flex-direction: row;
     justify-content: space-between;
     height: 100%;

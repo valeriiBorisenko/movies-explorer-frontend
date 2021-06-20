@@ -11,7 +11,7 @@ function PageNotFound() {
       <PageLink
         title="Назад"
         href={`${mainPageUrl}`}
-        sectionClass="page-not-found__link"
+        sectionClass="page-not-found__link link-opacity"
       />
     </section>
   )

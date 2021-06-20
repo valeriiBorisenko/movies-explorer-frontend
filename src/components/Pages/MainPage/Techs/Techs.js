@@ -23,7 +23,7 @@ function Techs({ isActive }) {
           />
           <div className="techs__items">
             {techs.map((item) =>
-              <div className="tech__item">{item}</div>
+              <div className="tech__item" key={item.id}>{item.name}</div>
             )}
           </div>
         </div>
