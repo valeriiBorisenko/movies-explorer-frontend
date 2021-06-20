@@ -64,7 +64,6 @@
     padding: 232px 186px;
     width: 396px;
     margin: 0 auto;
-    transition: .5s ease;
   }
   .auth__logo {
     margin-bottom: 40px;
@@ -84,6 +83,5 @@
 @media screen and (min-width: 1280px) {
   .auth {
     padding: 70px 442px;
-    transition: .5s ease;
   }
 }

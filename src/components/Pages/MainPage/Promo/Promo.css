@@ -53,7 +53,6 @@
 @media screen and (min-width: 768px) {
   .promo__container {
     padding: 140px 44px 92px;
-    transition: .3s ease;  
   }
   .promo__logo {
     min-width: 310px;
@@ -81,7 +80,6 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 75px 70px 84px;
-    transition: .3s ease;  
   }
 
   .promo__logo {

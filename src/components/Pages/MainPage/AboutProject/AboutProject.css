@@ -28,7 +28,6 @@
     grid-gap: 30px;
     margin-top: 70px;
     margin-bottom: 93px;
-    transition: .4s ease;
   }
   .about-project__timeline {
     grid-template-columns: 20% 80%

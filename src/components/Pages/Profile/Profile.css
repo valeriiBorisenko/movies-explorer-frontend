@@ -73,7 +73,6 @@
 @media screen and (min-width: 1280px) {
   .profile__main {
     padding: 74px 435px 70px;
-    transition: .5s ease;
   }
 
   .profile__form {
