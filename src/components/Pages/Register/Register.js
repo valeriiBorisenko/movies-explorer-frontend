@@ -1,16 +1,21 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import AuthUsers from "../../ui/AuthUsers/AuthUsers";
 import AuthInput from "../../ui/AuthInput/AuthInput";
+import { moviesUrl } from "../../../utils/routes";
+
 
 function Register({ browserLocation }) {
 
+  const history = useHistory()
   const [inputValues, setInputValues] = useState(null);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onFormSubmit = (values) => {
     setInputValues({ ...inputValues, ...values });
+    history.push(moviesUrl)
   }
 
   return (

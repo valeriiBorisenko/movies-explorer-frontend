@@ -6,7 +6,6 @@ function Input({
   register,
   placeholder,
   value,
-  onChange,
 }) {
 
   return (
@@ -17,7 +16,6 @@ function Input({
       placeholder={placeholder}
       value={value}
       {...register(name, { required })}
-      onChange={onChange}
     />
   )
 }
