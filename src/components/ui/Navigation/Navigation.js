@@ -29,10 +29,10 @@ function Navigation() {
 
   return (
     <>
-      <button className="navigation__button-burger" onClick={clickOpenMobileMenu} />
+      <button className="navigation__button-burger link-opacity" onClick={clickOpenMobileMenu} />
       <div className={classNamesNavigation}>
         <div className="navigation__container">
-          <button className="navigation__button-close" onClick={closeMobileMenu} />
+          <button className="navigation__button-close link-opacity" onClick={closeMobileMenu} />
           <h3 className="navigation__title">Главная</h3>
           <ul className="navigation__list">
             <NavItem href={`${moviesUrl}`} linkText='Фильмы' onClick={handleCloseMobileMenu} />
