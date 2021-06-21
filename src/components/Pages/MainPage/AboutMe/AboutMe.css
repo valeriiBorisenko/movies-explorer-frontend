@@ -72,7 +72,6 @@
   .about-me__title {
     margin-top: 0px;
     margin-bottom: 16px;
-    transition: .4s ease;
   }
 
   .about-me__text:last-of-type {
@@ -87,11 +86,9 @@
 
   .about-me__title {
     margin-bottom: 18px;
-    transition: .4s ease;
   }
   
   .about-me__text {
     margin-bottom: 26px;
-    transition: .4s ease;
   }
 }

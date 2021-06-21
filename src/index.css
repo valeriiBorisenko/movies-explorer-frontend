@@ -28,11 +28,12 @@
 @import url(./components/Pages/PageNotFound/PageNotFound.css);
 @import url(./components/Pages/Register/Register.css);
 @import url(./components/Pages/Login/Login.css);
+@import url(./components/Pages/Movies/Movies.css);
+@import url(./components/Pages/SavedMovies/SavedMovies.css);
 
 @import url(./components/Pages/Profile/Profile.css);
 @import url(./components/Pages/Profile/ProfileInput/ProfileInput.css);
 
-@import url(./components/Pages/Movies/Movies.css);
 
 @import url(./components/ui/Button/Button.css);
 @import url(./components/ui/Navigation/Navigation.css);
@@ -43,3 +44,10 @@
 @import url(./components/ui/TitleH2/TitleH2.css);
 @import url(./components/ui/AuthUsers/AuthUsers.css);
 @import url(./components/ui/AuthInput/AuthInput.css);
+@import url(./components/ui/Preloader/Preloader.css);
+
+@import url(./components/ui/MoviesContainer/Search/Search.css);
+@import url(./components/ui/MoviesContainer/MoviesCardList/MoviesCardList.css);
+@import url(./components/ui/MoviesContainer/ui/SearchForm/SearchForm.css);
+@import url(./components/ui/MoviesContainer/ui/FilterCheckBox/FilterCheckBox.css);
+@import url(./components/ui/MoviesContainer/ui/MoviesCard/MoviesCard.css);
