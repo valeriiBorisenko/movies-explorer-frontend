@@ -1,0 +1,13 @@
+.titleh2-mainpage{
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+
+}
+
+@media screen and (min-width: 768px) {
+  .titleh2-mainpage {
+    font-size: 50px;
+    line-height: 58px;
+  }
+}

@@ -1,0 +1,19 @@
+.paragraph-main-page {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .paragraph-main-page {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .paragraph-main-page {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
