@@ -2,9 +2,9 @@ import TitleH3MainPage from '../ui/TitleH3MainPage/TitleH3MainPage';
 import ProjectTasks from './ProjectTasks/ProjectTasks';
 import Timeline from './TimeLine/TimeLine'
 
-function AboutProject({ isActive }) {
+function AboutProject() {
   return (
-    <section className={`about-project ${isActive ? "about-project_hide" : ''}`} id="about-project">
+    <section className="about-project" id="about-project">
       <div className="main-page__container">
         <TitleH3MainPage
           title="О проекте"

@@ -1,10 +1,5 @@
 .about-project {
   width: 100%;
-  display: block;
-}
-
-.about-project_hide {
-  display: none;
 }
 
 .about-project__container {

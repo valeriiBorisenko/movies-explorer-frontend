@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Header from '../../Header/Header';
 import MainHeader from './ui/MainHeader/MainHeader';
 import Promo from './Promo/Promo';
@@ -12,10 +11,7 @@ import scrollDown from '../../../utils/srollDown'
 
 function MainPage() {
 
-  const [isActive, setIsActive] = useState(true);
-
   async function handleCickButton() {
-    await setIsActive(false)
     scrollDown()
   }
 
@@ -30,23 +26,13 @@ function MainPage() {
           onClick={handleCickButton}
         />
         <AboutProject
-          isActive={isActive}
           id="about-project"
         />
-        <Techs
-          isActive={isActive}
-        />
-        <AboutMe
-          isActive={isActive}
-        />
-        <Portfolio
-          isActive={isActive}
-        />
+        <Techs/>
+        <AboutMe/>
+        <Portfolio/>
       </main>
-      <Footer
-        isActive={isActive}
-        isMainPage
-      />
+      <Footer/>
 
     </section>
   )

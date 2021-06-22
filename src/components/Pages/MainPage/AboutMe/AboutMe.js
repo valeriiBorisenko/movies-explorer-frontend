@@ -4,9 +4,9 @@ import ParagraphMainPage from "../ui/ParagraphMainPage/ParagraphMainPage";
 import SocialLink from "../../../ui/SocialLink/SocialLink";
 import avatar from "../../../../images/ValeriiBorisenko.png"
 
-function AboutMe({ isActive }) {
+function AboutMe() {
   return (
-    <section className={`about-me ${isActive ? "about-me_hide" : ''}`}>
+    <section className="about-me">
       <div className="main-page__container">
         <TitleH3MainPage
           title="Студент"

@@ -1,10 +1,5 @@
 .portfolio {
   width: 100%;
-  display: block;
-}
-
-.portfolio_hide {
-  display: none;
 }
 
 .portfolio__container{

@@ -28,7 +28,7 @@
 @media screen and (min-width: 1024px) {
   .navtab {
     justify-content: flex-start;
-    margin-bottom: 111px
+    margin-bottom: 75px
   }
 
   .navtab__button {

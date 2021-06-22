@@ -4,7 +4,7 @@
   justify-content: space-between;
   background-color: #DDDEE3;
   width: 100%;
-  min-height: calc(100vh - 74px);
+  min-height: 636px;
 }
 
 .promo__container {
@@ -51,6 +51,11 @@
 
 
 @media screen and (min-width: 768px) {
+
+  .promo {
+    min-height: 850px;
+  }
+
   .promo__container {
     padding: 140px 44px 92px;
   }
@@ -68,13 +73,14 @@
     line-height: 50px;
   }
 
-  .promo__button {
-    margin-top: 92px;
-  }
-
 }
 
 @media screen and (min-width: 1024px) {
+
+  .promo {
+    min-height: 574px;
+  }
+
   .promo__container{
     flex-direction: row;
     justify-content: space-between;
@@ -103,7 +109,4 @@
     margin-top: 36px;
   }
 
-  .promo__button {
-    margin-top: 146px;
-  }
 }

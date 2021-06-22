@@ -3,9 +3,9 @@ import TitleH2MainPage from '../ui/TitleH2MainPage/TitleH2MainPage';
 import ParagraphMainPage from '../ui/ParagraphMainPage/ParagraphMainPage'
 import { techs } from '../../../../utils/constants';
 
-function Techs({ isActive }) {
+function Techs() {
   return (
-    <section className={`techs ${isActive ? "techs_hide" : ''}`}>
+    <section className="techs">
       <div className="main-page__container">
         <TitleH3MainPage
           title="Технологии"
