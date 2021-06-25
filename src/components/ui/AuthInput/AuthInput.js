@@ -11,13 +11,13 @@ function AuthInput({
 }) {
   const message = error ? errorMessage : '';
 
-  const classNamesInput = ['auth-input__input', message ? 'auth-input_error' : ''].join(' ').trim();
+  const classNameInput = ['auth-input__input', message ? 'auth-input_error' : ''].join(' ').trim();
 
   return (
     <div className="auth-input">
       <label className="auth-input__text">{description}</label>
       <Input
-        classNamesInput={classNamesInput}
+        sectionClass={classNameInput}
         type={type}
         name={name}
         register={register}

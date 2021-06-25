@@ -1,5 +1,5 @@
 function Input({
-  classNamesInput,
+  sectionClass,
   type,
   name,
   required,
@@ -10,7 +10,7 @@ function Input({
 
   return (
     <input
-      className={classNamesInput}
+      className={sectionClass}
       type={type}
       name={name}
       placeholder={placeholder}

@@ -12,13 +12,13 @@ function ProfileInput({
 }) {
   const message = error ? errorMessage : '';
 
-  const classNamesInput = ['profile-input__input', message ? 'profile-input_error' : ''].join(' ').trim();
+  const classNameInput = ['profile-input__input', message ? 'profile-input_error' : ''].join(' ').trim();
 
   return (
     <div className="profile-input">
       <label className="profile-input__text">{description}</label>
       <Input
-        classNamesInput={classNamesInput}
+        sectionClass={classNameInput}
         type={type}
         name={name}
         register={register}
