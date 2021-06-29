@@ -20,7 +20,14 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
+}
+
+.search-form__input::placeholder {
   color: #A0A0A0
+}
+
+.search-form__input_error::placeholder {
+  color: #EE3465;
 }
 
 @media screen and (min-width: 768px) {

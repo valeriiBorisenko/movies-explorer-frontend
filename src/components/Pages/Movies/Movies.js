@@ -30,7 +30,6 @@ function Movies() {
           register={register}
           required
           error={errors?.movies}
-          errorMessage="Нужно ввести ключевое слово"
           onSubmit={handleSubmit(onFormSubmit)}
         />
         <MoviesCardList
