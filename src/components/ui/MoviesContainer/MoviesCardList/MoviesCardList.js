@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import MoviesCard from '../ui/MoviesCard/MoviesCard'
+import Preloader from '../../../ui/Preloader/Preloader'
+import TitleH2 from '../../TitleH2/TitleH2';
+import { moviesUrl } from '../../../../utils/Api/configApi';
 
-function MoviesCardList({ data, buttonTrue, typeTrue, typeFalse }) {
+function MoviesCardList({ data, buttonTrue, typeTrue, typeFalse, isLoading, isError }) {
 
   const [visibleMovie, setVisibleMovie] = useState('')
   const [windowWidth, setWindowWidth] = useState(0)
@@ -41,24 +44,35 @@ function MoviesCardList({ data, buttonTrue, typeTrue, typeFalse }) {
     (windowWidth >= 768 && windowWidth < 1124 && data.length < 8 ? "movie-card-list__button_hiden" : "") ||
     (data.length <= visibleMovie ? "movie-card-list__button_hiden" : "");
 
-  return (
-    <section className="movie-card-list">
-      <ul className="movie-card-list__container">
-        {data.slice(0, visibleMovie).map((item) =>
-          <MoviesCard
-            name={item.name}
-            url={item.url}
-            duration={item.duration}
-            key={item.id}
-            buttonTrue={buttonTrue}
-            typeTrue={typeTrue}
-            typeFalse={typeFalse}
-          />
-        )}
-      </ul>
-      <button className={`movie-card-list__button link-opacity ${buttonHiden}`} onClick={showMoreMovie}>Ещё</button>
-    </section>
-  )
+  const renderMovies = isError ?
+    (<TitleH2
+      title="Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
+      sectionClass="movie-card-list-title"
+    />) :
+    (
+      <>
+        <ul className="movie-card-list__container">
+          {
+            data.slice(0, visibleMovie).map((item) =>
+              <MoviesCard
+                name={item.nameRU}
+                urlImage={`${moviesUrl}${item.image.url}`}
+                duration={item.duration}
+                key={item.id}
+                buttonTrue={buttonTrue}
+                typeTrue={typeTrue}
+                typeFalse={typeFalse}
+              />
+            )
+          }
+        </ul>
+        <button button className={`movie-card-list__button link-opacity ${buttonHiden}`} onClick={showMoreMovie}>Ещё</button>
+      </>
+    )
+
+  return isLoading ?
+    (<Preloader />) :
+    (<section className="movie-card-list">{renderMovies}</section>)
 }
 
 export default MoviesCardList;
