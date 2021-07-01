@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  margin: auto;
 }
 
 .movie-card-list__container {
@@ -13,13 +12,6 @@
   padding: 40px 10px 0px;
   box-sizing: border-box;
   margin: 0;
-}
-
-.movie-card-list-title {
-  text-align: center;
-  margin: 0;
-  max-width: 950px;
-  padding: 14px;
 }
 
 .movie-card-list__button {

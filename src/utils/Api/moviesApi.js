@@ -7,7 +7,7 @@ class Api {
   }
 
   getMovies() {
-    return fetch(`${this._baseUrl}/beatfilm-movies`, {
+    return fetch(`${this._baseUrl}/beatfilm-movies-`, {
       method: "GET",
       headers: { "Content-type": "application/json" }
     })

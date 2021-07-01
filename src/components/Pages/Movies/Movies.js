@@ -5,12 +5,16 @@ import Header from '../../Header/Header'
 import Navigation from '../../ui/Navigation/Navigation'
 import Search from '../../ui/MoviesContainer/Search/Search'
 import MoviesCardList from '../../ui/MoviesContainer/MoviesCardList/MoviesCardList'
+import TitleH2 from '../../ui/TitleH2/TitleH2'
 import Footer from '../../Footer/Footer'
 import moviesApi from '../../../utils/Api/moviesApi'
+import moviesFilter from '../../../utils/moviesFilter'
 
 function Movies() {
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isTitle, setIsTitle] = useState('')
+  const [isTitleActive, setIsTitleActive] = useState(false)
   const [isError, setIsError] = useState(false)
   const [inputValues, setInputValues] = useState(null);
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -22,19 +26,25 @@ function Movies() {
 
   useEffect(() => {
     if (inputValues !== null) {
+      setIsTitleActive(false)
       setIsLoading(true)
       moviesApi
-        .getMovies()
-        .then((res) => {
-          setMoviesCard(res)
-        })
-        .catch((err) => {
-          console.log(err)
-          setIsError(true)
-        })
-        .finally(() => setIsLoading(false))
+      .getMovies()
+      .then((res) => {
+        localStorage.setItem('movies', JSON.stringify(res))
+      })
+      .catch((err) => {
+        console.log(err)
+        setIsError(true)
+      })
+      .finally(() => {
+        const data = JSON.parse(localStorage.getItem('movies'))
+        moviesFilter(inputValues, data, setMoviesCard, setIsTitleActive, setIsTitle, isError)
+        setIsLoading()
+      })
     }
-  }, [inputValues])
+  }, [inputValues, isError])
+
 
   return (
     <section className="movies">
@@ -51,14 +61,19 @@ function Movies() {
           error={errors?.movies}
           onSubmit={handleSubmit(onFormSubmit)}
         />
-        <MoviesCardList
-          data={moviesCard}
-          buttonTrue="Сохранить"
-          typeTrue="saved"
-          typeFalse="save"
-          isLoading={isLoading}
-          isError={isError}
-        />
+        {isTitleActive ?
+          <TitleH2
+            title={isTitle}
+            sectionClass="movies__title"
+          /> :
+          <MoviesCardList
+            data={moviesCard}
+            buttonTrue="Сохранить"
+            typeTrue="saved"
+            typeFalse="save"
+            isLoading={isLoading}
+          />
+        }
       </main>
       <Footer />
     </section>
