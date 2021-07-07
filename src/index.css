@@ -34,7 +34,6 @@
 @import url(./components/Pages/Profile/Profile.css);
 @import url(./components/Pages/Profile/ProfileInput/ProfileInput.css);
 
-
 @import url(./components/ui/Button/Button.css);
 @import url(./components/ui/Navigation/Navigation.css);
 @import url(./components/ui/NavItem/NavItem.css);
@@ -45,6 +44,7 @@
 @import url(./components/ui/AuthUsers/AuthUsers.css);
 @import url(./components/ui/AuthInput/AuthInput.css);
 @import url(./components/ui/Preloader/Preloader.css);
+@import url(./components/ui/Error/Error.css);
 
 @import url(./components/ui/MoviesContainer/Search/Search.css);
 @import url(./components/ui/MoviesContainer/MoviesCardList/MoviesCardList.css);

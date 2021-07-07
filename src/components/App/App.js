@@ -21,24 +21,45 @@ import { PAGE_NOT_FOUND_URL, LOGIN_URL, MAIN_PAGE_URL, MOVIES_URL, PROFILE_URL, 
 function App() {
 
   const browserLocation = useLocation()
+
   const history = useHistory()
   const [currentUser, setCurrentUser] = useState('')
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.token))
+  const [errMessage, setErrorMessage] = useState('')
 
   function handleRegisterUser({name, email, password}) {
     authApi
     .postRegisterUser(name, email, password)
     .then(()=> handleLoginUser({ email, password }))
-    .catch((err) => console.log(err))
+    .catch((message) => { 
+      console.log(message) 
+      setErrorMessage('')
+    } )
   };
 
-  function handleLoginUser({email, password}) {
+  useEffect(() => {
+    if (loggedIn) {
+      const token = localStorage.getItem('token');
+      Promise.all([
+        authApi.getUserToken(token),
+      ])
+        .then(([
+          userData,
+        ]) => {
+          setCurrentUser(userData);
+        })
+        .catch((err) => console.log(err))
+    }
+  }, [loggedIn]);
+
+  function handleLoginUser({ email, password}) {
     authApi
     .postLoginUser(email, password)
     .then((data) => {
       localStorage.setItem('token', data.token)
       checkTokenUser()
       })
+    .then(() => history.push(MOVIES_URL))
     .catch((err) => console.log(err))
   };
 
@@ -55,67 +76,66 @@ function App() {
           history.push(MOVIES_URL)
         })
         .catch((err)=> console.log(err))
-      } return  
-    }
+      }
+    } 
   }
 
-  const handleClickLogout = () => {
+  function handleClickLogout(){
     localStorage.removeItem('token');
     setLoggedIn(false);
-    setCurrentUser(null);
     history.push(MAIN_PAGE_URL);
   };
 
-  useEffect(() =>{
-    checkTokenUser()
-  }, [])
+  function handleUpdateUser({ name, email }){
+    mainApi
+    .updateUserProfile(name, email)
+    .then((res)=> setCurrentUser(res) )
+    .catch((err)=>{
+      console.log(err) 
+     })
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
         <Switch>
           <Route 
-            exact 
-            path={`${MAIN_PAGE_URL}`}>
+            exact path={`${MAIN_PAGE_URL}`}>
             <MainPage 
               loggedIn={loggedIn}
             />
           </Route>
           <ProtectedRoute
-            exact
-            path={`${MOVIES_URL}`}
+            exact path={`${MOVIES_URL}`}
             loggedIn={loggedIn}
           >
             <Movies 
             />
           </ProtectedRoute>
           <ProtectedRoute
-            exact
-            path={`${SAVED_MOVIES_URL}`}
+            exact path={`${SAVED_MOVIES_URL}`}
             loggedIn={loggedIn}
           >
             <SavedMovies />
           </ProtectedRoute>
           <ProtectedRoute
-            exact
-            path={`${PROFILE_URL}`}
+            exact path={`${PROFILE_URL}`}
             loggedIn={loggedIn}
           >
             <Profile
-              currentUser={currentUser}
-              onClick={handleClickLogout}
+              handleClickLogout={handleClickLogout}
+              handleUpdateUser={handleUpdateUser}
             />
           </ProtectedRoute>
-          <Route path={`${REGISTER_URL}`}>
+          <Route exact path={`${REGISTER_URL}`}>
             <Register
-              exact
               browserLocation={browserLocation.pathname}
               onRegisterUser={handleRegisterUser}
+              errMessage={errMessage}
             />
           </Route>
-          <Route path={`${LOGIN_URL}`}>
+          <Route exact path={`${LOGIN_URL}`}>
             <Login
-              exact
               browserLocation={browserLocation.pathname}
               onLoginUser={handleLoginUser}
             />

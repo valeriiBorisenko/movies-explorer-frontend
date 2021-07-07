@@ -1,18 +1,20 @@
+import Error from "../../../ui/Error/Error";
 import Input from "../../../ui/Input/Input"
 
 function ProfileInput({
   description,
   type,
   name,
-  register,
-  required,
-  errorMessage,
+  id,
+  value,
+  onChange,
   error,
-  value
+  minLength,
+  maxLength,
+  pattern
 }) {
-  const message = error ? errorMessage : '';
 
-  const classNameInput = ['profile-input__input', message ? 'profile-input_error' : ''].join(' ').trim();
+  const classNameInput = ['profile-input__input', error ? 'profile-input_error' : ''].join(' ').trim();
 
   return (
     <div className="profile-input">
@@ -21,10 +23,15 @@ function ProfileInput({
         sectionClass={classNameInput}
         type={type}
         name={name}
-        register={register}
-        required={required}
-        placeholder={message}
+        id={id}
         value={value}
+        onChange={onChange}
+        minLength={minLength}
+        maxLength={maxLength}
+        pattern={pattern}
+      />
+      <Error  
+        error={error}
       />
     </div>
   )

@@ -59,6 +59,10 @@
   color: #3456f3;
 }
 
+.auth__error {
+  color: #ee3465;
+}
+
 .button__invalid {
   cursor: default;
   pointer-events: none;

@@ -4,7 +4,7 @@ import useFormWithValidation from "../../../hooks/useFormWithValidation";
 import { emailCheck, nameCheck } from "../../../utils/constants";
 
 
-function Register({ browserLocation, onRegisterUser }) {
+function Register({ browserLocation, onRegisterUser, errMessage }) {
 
   const { values, handleChange, errors, isValid } = useFormWithValidation()
 
@@ -26,6 +26,7 @@ function Register({ browserLocation, onRegisterUser }) {
         title="Добро пожаловать!"
         buttonTitle="Зарегистрироваться"
         isValid={isValid}
+        errMessage={errMessage}
       >
         <AuthInput
           description="Имя"

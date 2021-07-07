@@ -9,7 +9,8 @@ function AuthUsers({
   buttonTitle,
   location,
   onSubmit,
-  isValid 
+  isValid,
+  errMessage
 }) {
 
   const changeLink =
@@ -32,6 +33,7 @@ function AuthUsers({
           {children}
         </fieldset>
         <div className="auth__button-container">
+          <span className="auth__text auth__error" errMessage={errMessage}/>
           <Button
             sectionClass={`auth ${!isValid? 'button__invalid' : ''}`}
             title={buttonTitle}

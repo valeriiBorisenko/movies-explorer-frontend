@@ -1,3 +1,4 @@
+import Error from "../Error/Error";
 import Input from "../Input/Input";
 
 function AuthInput({
@@ -29,7 +30,9 @@ function AuthInput({
         maxLength={maxLength}
         pattern={pattern}
       />
-      <span className="auth-input__text auth-input_error">{error}</span>
+      <Error
+        error={error}
+      />
     </div>
   )
 }
