@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import mainApi from '../../utils/Api/mainApi';
 import authApi from '../../utils/Api/authApi';
+import moviesApi from '../../utils/Api/moviesApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import ProtectedRoute from '../ui/ProtectedRoute/ProtectedRoute'
@@ -24,8 +25,9 @@ function App() {
 
   const history = useHistory()
   const [currentUser, setCurrentUser] = useState('')
+  const [movies, setMovies] = useState([])
   const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.token))
-  const [errMessage, setErrorMessage] = useState('')
+  const [errorsApi, setErrorsApi] = useState(false)
 
   function handleRegisterUser({name, email, password}) {
     authApi
@@ -33,7 +35,7 @@ function App() {
     .then(()=> handleLoginUser({ email, password }))
     .catch((message) => { 
       console.log(message) 
-      setErrorMessage('')
+      setErrorsApi(true)
     } )
   };
 
@@ -42,11 +44,14 @@ function App() {
       const token = localStorage.getItem('token');
       Promise.all([
         authApi.getUserToken(token),
+        moviesApi.getMovies(),
       ])
         .then(([
           userData,
+          moviesData,
         ]) => {
           setCurrentUser(userData);
+          setMovies(moviesData)
         })
         .catch((err) => console.log(err))
     }
@@ -81,7 +86,7 @@ function App() {
   }
 
   function handleClickLogout(){
-    localStorage.removeItem('token');
+    localStorage.clear()
     setLoggedIn(false);
     history.push(MAIN_PAGE_URL);
   };
@@ -110,6 +115,7 @@ function App() {
             loggedIn={loggedIn}
           >
             <Movies 
+              movies={movies}
             />
           </ProtectedRoute>
           <ProtectedRoute
@@ -131,7 +137,7 @@ function App() {
             <Register
               browserLocation={browserLocation.pathname}
               onRegisterUser={handleRegisterUser}
-              errMessage={errMessage}
+              errorsApi={errorsApi}
             />
           </Route>
           <Route exact path={`${LOGIN_URL}`}>

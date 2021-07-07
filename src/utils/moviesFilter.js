@@ -1,16 +1,16 @@
 import { titleMoviesCardList } from "./constants"
 
-function moviesFilter(inputValues, data, setSearchMovies, setIsTitleActive, setIsTitle, isError, isCheckbox) {
+function moviesFilter(inputValue, checkBox, data, setSearchMovies, setIsTitleActive, setIsTitle, errorsApi) {
 
   const foundMovies = data.filter((item) =>
-    (inputValues? item.nameRU.toLowerCase().includes(inputValues.toLowerCase()) : '') &&
-    (isCheckbox ? item.duration < 40 : data)
+    (inputValue? item.nameRU.toLowerCase().includes(inputValue.toLowerCase()) : '') &&
+    (checkBox ? item.duration < 40 : data)
   )
 
-  if (isError) {
+  if (errorsApi) {
     setIsTitleActive(true)
     setIsTitle(titleMoviesCardList.error)
-  } else if (foundMovies.length === 0 && inputValues !== null) {
+  } else if (foundMovies.length === 0 ) {
     setIsTitleActive(true)
     setIsTitle(titleMoviesCardList.notFound)
   } else {
@@ -20,7 +20,6 @@ function moviesFilter(inputValues, data, setSearchMovies, setIsTitleActive, setI
       return 0;
     });
     localStorage.setItem('searchedMovies', JSON.stringify(sortMovies))
-  
     const movies = JSON.parse(localStorage.getItem('searchedMovies'))
     setSearchMovies(movies)
     setIsTitleActive(false)

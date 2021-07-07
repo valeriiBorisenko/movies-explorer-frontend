@@ -1,6 +1,6 @@
-function Error({ error }) {
+function Error({ error, sectionClass }) {
   return(
-    <span className="error">{error}</span>
+    <span className={`error ${sectionClass}`}>{error}</span>
   )
 }
 
