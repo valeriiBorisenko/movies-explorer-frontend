@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import MoviesCard from '../ui/MoviesCard/MoviesCard'
 import Preloader from '../../../ui/Preloader/Preloader'
-import { moviesUrl } from '../../../../utils/Api/configApi';
+import { MOVIES_API_URL } from '../../../../utils/Api/configApi';
 
 function MoviesCardList({ data, buttonTrue, typeTrue, typeFalse, isLoading }) {
 
@@ -51,8 +51,9 @@ function MoviesCardList({ data, buttonTrue, typeTrue, typeFalse, isLoading }) {
           data.slice(0, visibleMovie).map((item) =>
             <MoviesCard
               name={item.nameRU}
-              urlImage={`${moviesUrl}${item.image.url}`}
+              urlImage={`${MOVIES_API_URL}${item.image.url}`}
               duration={item.duration}
+              trailerLink={item.trailerLink}
               key={item.id}
               buttonTrue={buttonTrue}
               typeTrue={typeTrue}

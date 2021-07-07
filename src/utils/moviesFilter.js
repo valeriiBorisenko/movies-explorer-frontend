@@ -1,13 +1,29 @@
-function moviesFilter(inputValues, data, setMoviesCard, setIsTitleActive, setIsTitle, isError) {
-  const movies = data.filter((item) => item.nameRU.toLowerCase().includes(inputValues.movies.toLowerCase()))
+import { titleMoviesCardList } from "./constants"
+
+function moviesFilter(inputValues, data, setSearchMovies, setIsTitleActive, setIsTitle, isError, isCheckbox) {
+
+  const foundMovies = data.filter((item) =>
+    (inputValues? item.nameRU.toLowerCase().includes(inputValues.toLowerCase()) : '') &&
+    (isCheckbox ? item.duration < 40 : data)
+  )
+
   if (isError) {
     setIsTitleActive(true)
-    setIsTitle('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
-  } else if (movies.length === 0) {
+    setIsTitle(titleMoviesCardList.error)
+  } else if (foundMovies.length === 0 && inputValues !== null) {
     setIsTitleActive(true)
-    setIsTitle('Ничего не найдено')
+    setIsTitle(titleMoviesCardList.notFound)
   } else {
-    setMoviesCard(movies)
+    const sortMovies = foundMovies.sort((a, b) => {
+      if (a.nameRU < b.nameRU) return -1;
+      if (a.nameRU > b.nameRU) return 1;
+      return 0;
+    });
+    localStorage.setItem('searchedMovies', JSON.stringify(sortMovies))
+  
+    const movies = JSON.parse(localStorage.getItem('searchedMovies'))
+    setSearchMovies(movies)
+    setIsTitleActive(false)
   }
 } 
 

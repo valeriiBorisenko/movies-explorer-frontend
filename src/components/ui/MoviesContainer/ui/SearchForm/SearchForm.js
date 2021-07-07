@@ -1,7 +1,7 @@
 import Button from '../../../Button/Button'
 import Input from '../../../Input/Input'
 
-function SearchForm({ type, name, register, required, error, onSubmit }) {
+function SearchForm({ type, name, id, value, error, onChange, onSubmit }) {
 
   const message = error ? "Нужно ввести ключевое слово" : "Фильм";
   const errorClass = error ? "search-form__input_error" : ""
@@ -12,9 +12,10 @@ function SearchForm({ type, name, register, required, error, onSubmit }) {
         sectionClass={`search-form__input ${errorClass} `}
         type={type}
         name={name}
-        register={register}
-        required={required}
+        id={id}
         placeholder={message}
+        value={value}
+        onChange={onChange}
       />
       <Button
         title="Поиск"

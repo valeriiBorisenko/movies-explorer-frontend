@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom'
 import TitleH2 from '../../ui/TitleH2/TitleH2'
 import Button from '../Button/Button'
-import { loginUrl, registerUrl } from '../../../utils/routes'
+import { LOGIN_URL, REGISTER_URL } from '../../../utils/routes'
 
 function AuthUsers({
   title,
   children,
   buttonTitle,
   location,
-  onSubmit }) {
+  onSubmit,
+  isValid 
+}) {
 
   const changeLink =
-    (location === loginUrl ?
-      <p className="auth__text">Ещё не зарегистрированы? <Link className="auth__link link-opacity auth__text" to={registerUrl}>Регистрация</Link></p>
+    (location === LOGIN_URL ?
+      <p className="auth__text">Ещё не зарегистрированы? <Link className="auth__link link-opacity auth__text" to={REGISTER_URL}>Регистрация</Link></p>
       : '') ||
-    (location === registerUrl ?
-      <p className="auth__text ">Уже зарегистрированы? <Link className="auth__link link-opacity auth__text" to={loginUrl}>Войти</Link></p>
+    (location === REGISTER_URL ?
+      <p className="auth__text ">Уже зарегистрированы? <Link className="auth__link link-opacity auth__text" to={LOGIN_URL}>Войти</Link></p>
       : '')
 
   return (
@@ -31,7 +33,7 @@ function AuthUsers({
         </fieldset>
         <div className="auth__button-container">
           <Button
-            sectionClass="auth"
+            sectionClass={`auth ${!isValid? 'button__invalid' : ''}`}
             title={buttonTitle}
             type="submit"
           />

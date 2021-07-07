@@ -1,5 +1,5 @@
 import onError from './onError'
-import { moviesUrl } from './configApi'
+import { MOVIES_API_URL } from './configApi'
 
 class Api {
   constructor({ baseUrl }) {
@@ -7,7 +7,7 @@ class Api {
   }
 
   getMovies() {
-    return fetch(`${this._baseUrl}/beatfilm-movies-`, {
+    return fetch(`${this._baseUrl}/beatfilm-movies`, {
       method: "GET",
       headers: { "Content-type": "application/json" }
     })
@@ -16,7 +16,7 @@ class Api {
 }
 
 const moviesApi = new Api({
-  baseUrl: moviesUrl,
+  baseUrl: MOVIES_API_URL,
 })
 
 export default moviesApi

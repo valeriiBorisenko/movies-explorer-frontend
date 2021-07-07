@@ -50,3 +50,12 @@ export const savedMovies = [
   },
 
 ]
+
+export const titleMoviesCardList = {
+  standart: 'Воспользуйтесь поиском',
+  error: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+  notFound: 'Ничего не найдено'
+}
+
+export const nameCheck = '^[а-яА-ЯЁёa-zA-Z\\s\\-]+$'
+export const emailCheck = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'

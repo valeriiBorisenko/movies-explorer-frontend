@@ -1,47 +1,49 @@
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-
 import AuthUsers from "../../ui/AuthUsers/AuthUsers";
 import AuthInput from "../../ui/AuthInput/AuthInput";
-import { moviesUrl } from "../../../utils/routes";
+import useFormWithValidation from "../../../hooks/useFormWithValidation";
+import { emailCheck } from "../../../utils/constants";
 
-function Login({ browserLocation }) {
+function Login({ browserLocation, onLoginUser }) {
 
-  const history = useHistory()
-  const [inputValues, setInputValues] = useState(null);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { values, handleChange, errors, isValid } = useFormWithValidation()
 
-  const onFormSubmit = (values) => {
-    setInputValues({ ...inputValues, ...values })
-    history.push(moviesUrl)
+  function handleSubmit (evt) {
+    evt.preventDefault();
+
+    onLoginUser({
+      email: values.emailLog,
+      password: values.passwordLog
+    })
   }
 
   return (
     <section className="login">
       <AuthUsers
-        onSubmit={handleSubmit(onFormSubmit)}
+        onSubmit={handleSubmit}
         location={browserLocation}
         title="Рады видеть!"
         buttonTitle="Войти"
+        isValid={isValid}
       >
         <AuthInput
           description="E-mail"
           type="email"
-          name="email"
-          register={register}
-          required
-          error={errors?.email}
-          errorMessage="Введите email"
+          name="emailLog"
+          id="emailLog"
+          value={values.emailLog || ''}
+          onChange={handleChange}
+          error={errors?.emailLog}
+          pattern={emailCheck}
         />
         <AuthInput
           description="Пароль"
           type="password"
-          name="password"
-          register={register}
-          required
-          error={errors?.password}
-          errorMessage="Введите пароль"
+          name="passwordLog"
+          id="passwordLog"
+          value={values.passwordLog || ''}
+          onChange={handleChange}
+          error={errors?.passwordLog}
+          minLength="8"
         />
       </AuthUsers>
     </section >

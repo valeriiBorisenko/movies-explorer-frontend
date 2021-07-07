@@ -1,50 +1,37 @@
-import { useForm } from 'react-hook-form'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
+import useFormWithValidation from '../../../hooks/useFormWithValidation'
 import Header from '../../Header/Header'
 import Navigation from '../../ui/Navigation/Navigation'
 import Search from '../../ui/MoviesContainer/Search/Search'
 import MoviesCardList from '../../ui/MoviesContainer/MoviesCardList/MoviesCardList'
 import TitleH2 from '../../ui/TitleH2/TitleH2'
 import Footer from '../../Footer/Footer'
-import moviesApi from '../../../utils/Api/moviesApi'
 import moviesFilter from '../../../utils/moviesFilter'
+import { titleMoviesCardList } from '../../../utils/constants'
 
-function Movies() {
+function Movies({moviesCard, isErrorMovies}) {
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [isTitle, setIsTitle] = useState('')
-  const [isTitleActive, setIsTitleActive] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [inputValues, setInputValues] = useState(null);
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const [moviesCard, setMoviesCard] = useState([])
+  const [isTitle, setIsTitle] = useState(titleMoviesCardList.standart);
+  const [isTitleActive, setIsTitleActive] = useState(true);
 
-  const onFormSubmit = (values) => {
-    setInputValues({ ...inputValues, ...values });
+  const [errorSearh, setErrorSearch] = useState(false)
+
+  const { values, handleChange } = useFormWithValidation();
+  const [isCheckBox, setIsCheckBox] = useState(false);
+  const [inputValues, setInputValues] = useState(null)
+  
+  const [searchMovies, setSearchMovies] = useState([])
+
+  function handleCheckboxChange(){
+    setIsCheckBox(!isCheckBox);
+  };
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    setInputValues(values.movies)
+    moviesFilter(inputValues, moviesCard, setSearchMovies, setIsTitleActive, setIsTitle, isErrorMovies, isCheckBox)
   }
-
-  useEffect(() => {
-    if (inputValues !== null) {
-      setIsTitleActive(false)
-      setIsLoading(true)
-      moviesApi
-      .getMovies()
-      .then((res) => {
-        localStorage.setItem('movies', JSON.stringify(res))
-      })
-      .catch((err) => {
-        console.log(err)
-        setIsError(true)
-      })
-      .finally(() => {
-        const data = JSON.parse(localStorage.getItem('movies'))
-        moviesFilter(inputValues, data, setMoviesCard, setIsTitleActive, setIsTitle, isError)
-        setIsLoading()
-      })
-    }
-  }, [inputValues, isError])
-
 
   return (
     <section className="movies">
@@ -56,10 +43,12 @@ function Movies() {
         <Search
           type="text"
           name="movies"
-          register={register}
-          required
-          error={errors?.movies}
-          onSubmit={handleSubmit(onFormSubmit)}
+          id="movies"
+          value={values.movies || ''}
+          error={errorSearh}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+          handleCheckboxChange={handleCheckboxChange}
         />
         {isTitleActive ?
           <TitleH2
@@ -67,11 +56,10 @@ function Movies() {
             sectionClass="movies__title"
           /> :
           <MoviesCardList
-            data={moviesCard}
+            data={searchMovies}
             buttonTrue="Сохранить"
             typeTrue="saved"
             typeFalse="save"
-            isLoading={isLoading}
           />
         }
       </main>

@@ -1,8 +1,11 @@
-function FilterCheckBox() {
+function FilterCheckBox({ onChange }) {
   return (
     <label className="filter">
-      <input type="checkbox" />
-      <span className="filter__slider"></span>
+      <input 
+        type="checkbox"
+        onChange={onChange}
+      />
+      <span className="filter__slider" />
     </label>
   )
 }
