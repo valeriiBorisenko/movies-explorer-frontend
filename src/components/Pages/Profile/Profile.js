@@ -1,26 +1,31 @@
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { useHistory } from "react-router";
+import { useContext, useEffect } from "react";
+import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
+import useFormWithValidation from "../../../hooks/useFormWithValidation";
+import { emailCheck, nameCheck } from "../../../utils/constants";
 
 import Header from '../../Header/Header'
 import Navigation from '../../ui/Navigation/Navigation'
 import TitleH2 from '../../ui/TitleH2/TitleH2'
 import ProfileInput from "./ProfileInput/ProfileInput";
-import { mainPageUrl } from "../../../utils/routes";
 
-function Profile() {
-  const name = "Валерий"
-  const history = useHistory()
-  const [inputValues, setInputValues] = useState(null);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+function Profile({ handleClickLogout, handleUpdateUser }) {
+  const { values, handleChange, errors, isValid, setValues } = useFormWithValidation()
 
-  const onFormSubmit = (values) => {
-    setInputValues({ ...inputValues, ...values });
-  }
+  const currentUser = useContext(CurrentUserContext)
 
-  function handleClickExit() {
-    history.push(mainPageUrl)
-  }
+  useEffect(() => setValues({
+    nameProf: currentUser.name,
+    emailProf: currentUser.email
+  }),[currentUser, setValues])
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+
+    handleUpdateUser({
+      name: values.nameProf,
+      email: values.emailProf,
+    })
+  };
 
   return (
     <section className="profile">
@@ -30,35 +35,37 @@ function Profile() {
       </Header>
       <main className="profile__main">
         <TitleH2
-          title={`Привет, ${name}!`}
+          title={`Привет, ${currentUser.name}!`}
           sectionClass="text-skin"
         />
-        <form className="profile__form" onSubmit={handleSubmit(onFormSubmit)} noValidate>
+        <form className="profile__form" onSubmit={handleSubmit} noValidate>
           <fieldset className="profile__form-container">
             <ProfileInput
               description="Имя"
               type="text"
-              name="name"
-              register={register}
-              required
-              error={errors?.name}
-              errorMessage="Введите имя*"
-              value={name}
+              name="nameProf"
+              id="nameProf"
+              value={values.nameProf || '' }
+              onChange={handleChange}
+              minLength="2"
+              maxLength="30"
+              error={errors?.nameProf}
+              pattern={nameCheck}
             />
             <ProfileInput
               description="E-mail"
               type="text"
-              name="email"
-              register={register}
-              required
-              error={errors?.name}
-              errorMessage="Введите e-mail*"
-              value="ololo@mail.ru"
+              name="emailProf"
+              id="emailProf"
+              value={values.emailProf || ''}
+              onChange={handleChange}
+              error={errors?.emailProf}
+              pattern={emailCheck}
             />
           </fieldset>
           <div className="profile__button-container">
-            <button className="profile__button link-opacity" type="submit">Редактировать</button>
-            <button className="profile__button profile__button_exit link-opacity" type="submit" onClick={handleClickExit}>Выйти из аккаунта</button>
+            <button className={`profile__button link-opacity ${!isValid? 'profile__button_invalid' : ''}`} type="submit" >Редактировать</button>
+            <button className="profile__button profile__button_exit link-opacity" type="submit" onClick={handleClickLogout}>Выйти из аккаунта</button>
           </div>
         </form>
       </main>

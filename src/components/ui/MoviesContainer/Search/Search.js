@@ -1,20 +1,34 @@
 import SearchForm from "../ui/SearchForm/SearchForm";
 import FilterCheckBox from '../ui/FilterCheckBox/FilterCheckBox'
 
-function Search({ type, name, register, required, error, errorMessage, onSubmit }) {
+function Search({ 
+  type, 
+  name, 
+  id, 
+  value, 
+  onChange, 
+  onSubmit, 
+  handleCheckboxChange,
+  notFoundValue,
+  isCheckbox
+}) {
+
   return (
     <section className="search">
       <SearchForm 
         type={type}
         name={name}
-        register={register}
-        required={required}
-        error={error}
-        errorMessage={errorMessage}
+        id={id}
+        onChange={onChange}
         onSubmit={onSubmit}
+        value={value}
+        notFoundValue={notFoundValue}
       />
       <div className="search__checkbox">
-        <FilterCheckBox />
+        <FilterCheckBox
+          onChange={handleCheckboxChange}
+          isCheckbox={isCheckbox}
+        />
         <p className="search__description">Короткометражки</p>
       </div>
       <div className="search__border" />

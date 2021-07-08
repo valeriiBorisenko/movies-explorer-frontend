@@ -1,5 +1,5 @@
 import PageLink from "../../ui/PageLink/PageLink";
-import { mainPageUrl } from "../../../utils/routes"
+import { MAIN_PAGE_URL } from "../../../utils/routes"
 
 function PageNotFound() {
   return (
@@ -10,7 +10,7 @@ function PageNotFound() {
       </div>
       <PageLink
         title="Назад"
-        href={`${mainPageUrl}`}
+        href={`${MAIN_PAGE_URL}`}
         sectionClass="page-not-found__link link-opacity"
       />
     </section>

@@ -1,57 +1,65 @@
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-
 import AuthUsers from "../../ui/AuthUsers/AuthUsers";
 import AuthInput from "../../ui/AuthInput/AuthInput";
-import { moviesUrl } from "../../../utils/routes";
+import useFormWithValidation from "../../../hooks/useFormWithValidation";
+import { emailCheck, nameCheck } from "../../../utils/constants";
 
 
-function Register({ browserLocation }) {
+function Register({ browserLocation, onRegisterUser, errorsApi, messageErrorApi }) {
 
-  const history = useHistory()
-  const [inputValues, setInputValues] = useState(null);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { values, handleChange, errors, isValid } = useFormWithValidation()
 
-  const onFormSubmit = (values) => {
-    setInputValues({ ...inputValues, ...values });
-    history.push(moviesUrl)
+  function handleSubmit (evt) {
+    evt.preventDefault();
+
+    onRegisterUser({
+      name: values.nameReg,
+      email: values.emailReg,
+      password: values.passwordReg
+    })
   }
-
+  
   return (
     <section className="register">
       <AuthUsers
-        onSubmit={handleSubmit(onFormSubmit)}
+        onSubmit={handleSubmit}
         location={browserLocation}
         title="Добро пожаловать!"
         buttonTitle="Зарегистрироваться"
+        isValid={isValid}
+        errorsApi={errorsApi}
+        messageErrorApi={messageErrorApi}
       >
         <AuthInput
           description="Имя"
           type="text"
-          name="name"
-          register={register}
-          required
-          error={errors?.name}
-          errorMessage="Введите имя"
+          name="nameReg"
+          id="nameReg"
+          value={values.nameReg || ''}
+          onChange={handleChange}
+          minLength="2"
+          maxLength="30"
+          error={errors?.nameReg}
+          pattern={nameCheck}
         />
         <AuthInput
           description="E-mail"
           type="email"
-          name="email"
-          register={register}
-          required
-          error={errors?.email}
-          errorMessage="Введите email"
+          name="emailReg"
+          id="emailReg"
+          value={values.emailReg || ''}
+          onChange={handleChange}
+          error={errors?.emailReg}
+          pattern={emailCheck}
         />
         <AuthInput
           description="Пароль"
           type="password"
-          name="password"
-          register={register}
-          required
-          error={errors?.password}
-          errorMessage="Введите пароль"
+          name="passwordReg"
+          id="passwordReg"
+          value={values.passwordReg || ''}
+          onChange={handleChange}
+          error={errors?.passwordReg}
+          minLength="8"
         />
       </AuthUsers>
     </section >

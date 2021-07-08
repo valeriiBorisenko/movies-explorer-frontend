@@ -47,26 +47,29 @@
   line-height: 15px;
 }
 
+.profile__button_invalid {
+  cursor: default;
+  pointer-events: none;
+  color: #a0a0a0;
+}
+
 .profile__button_exit {
-  color: #EE3465;
+  color: #ee3465;
 }
 
 @media screen and (min-width: 470px) {
   .profile__form {
     width: 410px;
     margin: 0 auto;
+    margin-top: 96px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .profile__main  {
+  .profile__main {
     padding: 236px 179px 269px;
     margin: 0 auto;
-    transition: .5s ease;
-  }
-
-  .profile__form {
-    margin-top: 96px;
+    transition: 0.5s ease;
   }
 }
 
