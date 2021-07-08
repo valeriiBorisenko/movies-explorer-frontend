@@ -26,16 +26,20 @@ function App() {
   const history = useHistory()
   const [currentUser, setCurrentUser] = useState('')
   const [movies, setMovies] = useState([])
+  const [savedMovies, setSavedMovies] = useState([])
+  const [savedMovieIds, setSavedMovieIds] = useState([])
   const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.token))
   const [errorsApi, setErrorsApi] = useState(false)
+  const [messageErrorApi, setMessageErrorApi] = useState('')
 
   function handleRegisterUser({name, email, password}) {
     authApi
     .postRegisterUser(name, email, password)
     .then(()=> handleLoginUser({ email, password }))
-    .catch((message) => { 
-      console.log(message) 
+    .catch((err) => { 
+      console.log(err) 
       setErrorsApi(true)
+      setMessageErrorApi(err.message || err)
     } )
   };
 
@@ -45,15 +49,22 @@ function App() {
       Promise.all([
         authApi.getUserToken(token),
         moviesApi.getMovies(),
+        mainApi.getSavedMovies(),
       ])
         .then(([
           userData,
           moviesData,
+          savedMovie
         ]) => {
           setCurrentUser(userData);
           setMovies(moviesData)
+
+          const ownerMovies = savedMovie.filter((item) => item.owner === userData._id)
+
+          setSavedMovies(ownerMovies)
+          setSavedMovieIds(ownerMovies.map((movie) => movie.movieId))
         })
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(err) )
     }
   }, [loggedIn]);
 
@@ -65,7 +76,11 @@ function App() {
       checkTokenUser()
       })
     .then(() => history.push(MOVIES_URL))
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      console.log(err)
+      setErrorsApi(true)
+      setMessageErrorApi(err.message || err)
+    })
   };
 
   function checkTokenUser(){
@@ -96,8 +111,29 @@ function App() {
     .updateUserProfile(name, email)
     .then((res)=> setCurrentUser(res) )
     .catch((err)=>{
-      console.log(err) 
+      console.log(err)
+      setErrorsApi(true)
+      setMessageErrorApi(err.message || err)
      })
+  }
+
+  function handleClickSaveMovie (movieData) {
+    mainApi.saveMovie(movieData)
+      .then((movie) => {
+        setSavedMovies([movie, ...savedMovies]);
+        setSavedMovieIds([...savedMovieIds, movie.movieId]);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  function handleCardDelete(movieForDelete){
+    mainApi
+    .removeMovie(movieForDelete)
+    .then(()=> {
+      setSavedMovies(savedMovies.filter((movie) => movie.movieId !== movieForDelete.movieId));
+      setSavedMovieIds(savedMovieIds.filter((id) => id !== movieForDelete.movieId))
+    })
+    .catch((err) => {console.log(err)})
   }
 
   return (
@@ -116,13 +152,20 @@ function App() {
           >
             <Movies 
               movies={movies}
+              savedMovies={savedMovies}
+              handleClickSaveMovie={handleClickSaveMovie}
+              handleCardDelete={handleCardDelete}
+              savedMovieIds={savedMovieIds}
             />
           </ProtectedRoute>
           <ProtectedRoute
             exact path={`${SAVED_MOVIES_URL}`}
             loggedIn={loggedIn}
           >
-            <SavedMovies />
+            <SavedMovies 
+              movies={savedMovies}
+              handleCardDelete={handleCardDelete}
+            />
           </ProtectedRoute>
           <ProtectedRoute
             exact path={`${PROFILE_URL}`}
@@ -131,6 +174,8 @@ function App() {
             <Profile
               handleClickLogout={handleClickLogout}
               handleUpdateUser={handleUpdateUser}
+              errorsApi={errorsApi}
+              messageErrorApi={messageErrorApi}
             />
           </ProtectedRoute>
           <Route exact path={`${REGISTER_URL}`}>
@@ -138,12 +183,15 @@ function App() {
               browserLocation={browserLocation.pathname}
               onRegisterUser={handleRegisterUser}
               errorsApi={errorsApi}
+              messageErrorApi={messageErrorApi}
             />
           </Route>
           <Route exact path={`${LOGIN_URL}`}>
             <Login
               browserLocation={browserLocation.pathname}
               onLoginUser={handleLoginUser}
+              errorsApi={errorsApi}
+              messageErrorApi={messageErrorApi}
             />
           </Route>
           <Route path={`${PAGE_NOT_FOUND_URL}`}>

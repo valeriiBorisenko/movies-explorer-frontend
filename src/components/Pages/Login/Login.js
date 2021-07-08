@@ -3,7 +3,7 @@ import AuthInput from "../../ui/AuthInput/AuthInput";
 import useFormWithValidation from "../../../hooks/useFormWithValidation";
 import { emailCheck } from "../../../utils/constants";
 
-function Login({ browserLocation, onLoginUser }) {
+function Login({ browserLocation, onLoginUser, errorsApi, messageErrorApi }) {
 
   const { values, handleChange, errors, isValid } = useFormWithValidation()
 
@@ -24,6 +24,8 @@ function Login({ browserLocation, onLoginUser }) {
         title="Рады видеть!"
         buttonTitle="Войти"
         isValid={isValid}
+        errorsApi={errorsApi}
+        messageErrorApi={messageErrorApi}
       >
         <AuthInput
           description="E-mail"

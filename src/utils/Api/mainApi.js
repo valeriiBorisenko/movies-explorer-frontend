@@ -24,8 +24,8 @@ class MainApi {
       .then(onError);
   };
 
-  removeMovie(movie) {
-    return fetch(`${this._baseUrl}/movies/${movie._id}`, {
+  removeMovie(movieForDelete) {
+    return fetch(`${this._baseUrl}/movies/${movieForDelete._id}`, {
       method: 'DELETE',
       headers: this._headers,
     })
