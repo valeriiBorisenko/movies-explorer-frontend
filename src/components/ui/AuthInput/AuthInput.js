@@ -1,17 +1,20 @@
+import Error from "../Error/Error";
 import Input from "../Input/Input";
 
 function AuthInput({
   description,
   type,
   name,
-  register,
-  required,
-  errorMessage,
+  id,
+  value,
+  onChange,
   error,
+  minLength,
+  maxLength,
+  pattern
 }) {
-  const message = error ? errorMessage : '';
 
-  const classNameInput = ['auth-input__input', message ? 'auth-input_error' : ''].join(' ').trim();
+  const classNameInput = ['auth-input__input', error ? 'auth-input_error' : ''].join(' ').trim();
 
   return (
     <div className="auth-input">
@@ -20,10 +23,16 @@ function AuthInput({
         sectionClass={classNameInput}
         type={type}
         name={name}
-        register={register}
-        required={required}
+        id={id}
+        value={value}
+        onChange={onChange}
+        minLength={minLength}
+        maxLength={maxLength}
+        pattern={pattern}
       />
-      <span className="auth-input__text auth-input_error">{message}</span>
+      <Error
+        error={error}
+      />
     </div>
   )
 }

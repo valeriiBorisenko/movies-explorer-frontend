@@ -3,3 +3,37 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
+.movies__title {
+  text-align: center;
+  margin: auto;
+  max-width: 950px;
+  padding: 14px;
+}
+
+.movie__button {
+  width: 240px;
+  height: 36px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  padding: 0;
+  align-self: center;
+  background: #f4f4f4;
+  border-radius: 6px;
+  border: unset;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  transition: 0.4s ease;
+}
+
+.movie__button_hiden {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .movie-card-list__button {
+    width: 320px;
+    height: 36px;
+  }
+}

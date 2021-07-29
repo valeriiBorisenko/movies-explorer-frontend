@@ -4,12 +4,12 @@
   justify-content: space-between;
   align-items: center;
   min-height: 56px;
-  border: 1.5px solid #AAAAAA;
+  border: 1.5px solid #aaaaaa;
   border-radius: 8px;
   padding: 6px;
   padding-left: 12px;
   box-sizing: border-box;
-  transition: .4s ease;
+  transition: 0.4s ease;
 }
 
 .search-form__input {
@@ -23,11 +23,11 @@
 }
 
 .search-form__input::placeholder {
-  color: #A0A0A0
+  color: #a0a0a0;
 }
 
 .search-form__input_error::placeholder {
-  color: #EE3465;
+  color: #ee3465;
 }
 
 @media screen and (min-width: 768px) {

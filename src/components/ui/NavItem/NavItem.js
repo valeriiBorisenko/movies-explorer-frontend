@@ -8,6 +8,7 @@ function NavItem({ href, linkText, onClick }) {
         activeClassName="navigation__link_active"
         to={href}
         onClick={onClick}
+        exact={true}
       >
         {linkText}
       </NavLink>

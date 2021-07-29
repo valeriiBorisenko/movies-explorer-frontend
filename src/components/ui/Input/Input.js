@@ -2,10 +2,13 @@ function Input({
   sectionClass,
   type,
   name,
-  required,
-  register,
+  id,
   placeholder,
   value,
+  onChange,
+  maxLength,
+  minLength,
+  pattern
 }) {
 
   return (
@@ -13,9 +16,14 @@ function Input({
       className={sectionClass}
       type={type}
       name={name}
+      id={id}
       placeholder={placeholder}
       value={value}
-      {...register(name, { required })}
+      onChange={onChange}
+      maxLength={maxLength}
+      minLength={minLength}
+      pattern={pattern}
+      required
     />
   )
 }

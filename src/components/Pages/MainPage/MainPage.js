@@ -8,8 +8,9 @@ import Portfolio from './Portfolio/Portfolio';
 import Footer from '../../Footer/Footer';
 
 import scrollDown from '../../../utils/srollDown'
+import Navigation from '../../ui/Navigation/Navigation';
 
-function MainPage() {
+function MainPage({ loggedIn }) {
 
   async function handleCickButton() {
     scrollDown()
@@ -19,7 +20,10 @@ function MainPage() {
     <section className="main-page">
       <Header sectionClass="header_type_main">
         <div className="header__logo" aria-label="логотип страницы" />
-        <MainHeader />
+        {loggedIn?
+        <Navigation /> :
+        <MainHeader /> 
+      }
       </Header>
       <main className="main">
         <Promo

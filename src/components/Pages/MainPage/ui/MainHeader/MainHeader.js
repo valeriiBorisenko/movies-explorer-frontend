@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { loginUrl, registerUrl } from "../../../../../utils/routes";
+import { LOGIN_URL, REGISTER_URL } from "../../../../../utils/routes";
 
 function MainHeader() {
   return (
     <ul className="main-header">
       <li>
-        <Link className="main-header__link link-opacity" to={`${registerUrl}`}>Регистрация</Link>
+        <Link className="main-header__link link-opacity" to={`${REGISTER_URL}`}>Регистрация</Link>
       </li>
       <li>
-        <Link to={loginUrl}>
+        <Link to={LOGIN_URL}>
           <button className="main-header__button link-opacity" type="button">Войти</button>
         </Link>
       </li>
